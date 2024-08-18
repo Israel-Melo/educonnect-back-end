@@ -18,4 +18,16 @@ model User {
   email    String  @unique
   name     String?
   password String?
+  turmas   Turma[]
+  
+}
+
+model Turma {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  turno     String
+  ano       Int 
+  serie     String
+  usuario   User    @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
 }
